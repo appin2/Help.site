@@ -1,0 +1,41 @@
+/* Stable shared navigation */
+.nav{display:flex;align-items:center;justify-content:flex-end;gap:14px;flex-wrap:nowrap;min-width:0}
+.nav a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 10px;border-radius:9px;white-space:nowrap;line-height:1.3;box-sizing:border-box;flex:0 0 auto;transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease,opacity .2s ease}
+.nav a:hover{transform:none!important}
+.nav-button{min-height:42px!important;padding:0 16px!important;border:1px solid #166534!important;border-radius:10px!important;background:#166534!important;color:#fff!important;font-weight:750!important;box-shadow:0 7px 18px rgba(22,101,52,.16)!important}
+.nav-button:hover{background:#14532d!important;box-shadow:0 9px 22px rgba(22,101,52,.22)!important}
+.nav-button:active{background:#0f4224!important;box-shadow:0 4px 12px rgba(22,101,52,.15)!important}
+.emergency-nav-button{min-height:40px!important;padding:0 13px!important;border:1px solid #fecaca!important;border-radius:10px!important;background:#fff7f7!important;color:#dc2626!important;font-weight:750!important}
+.emergency-nav-button:hover{background:#dc2626!important;color:#fff!important;border-color:#dc2626!important;box-shadow:0 7px 18px rgba(220,38,38,.16)!important}
+.emergency-nav-button:active{background:#b91c1c!important;color:#fff!important}
+.nav a:focus-visible,.nav-button:focus-visible,.emergency-nav-button:focus-visible{outline:3px solid rgba(22,101,52,.18);outline-offset:2px}
+
+/* Shared emergency popup */
+.emergency-overlay{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(15,23,42,.58);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s ease}
+.emergency-overlay.show{opacity:1;visibility:visible;pointer-events:auto}
+.emergency-modal{width:min(720px,100%);max-height:min(88vh,760px);overflow:hidden;background:#fff;border:1px solid #e5e7eb;border-radius:18px;box-shadow:0 28px 80px rgba(15,23,42,.24);transform:translateY(10px);transition:transform .2s ease}
+.emergency-overlay.show .emergency-modal{transform:translateY(0)}
+.emergency-header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 20px;border-bottom:1px solid #eef2f0}
+.emergency-title{display:flex;align-items:center;gap:12px;min-width:0}
+.emergency-title-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex:0 0 44px;border-radius:12px;background:#fee2e2;font-size:22px}
+.emergency-title h2{margin:0 0 3px;color:#111827;font-size:21px;line-height:1.3}
+.emergency-title p{margin:0;color:#6b7280;font-size:13px}
+.emergency-close{width:38px;height:38px;flex:0 0 38px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid #e5e7eb;border-radius:10px;background:#f8fafc;color:#374151;font-size:24px;line-height:1;cursor:pointer;transition:background-color .2s ease,color .2s ease,border-color .2s ease}
+.emergency-close:hover{background:#fee2e2;color:#dc2626;border-color:#fecaca}
+.emergency-body{max-height:calc(min(88vh,760px) - 81px);overflow-y:auto;padding:15px 20px 20px}
+.emergency-notice{margin-bottom:12px;padding:11px 13px;border:1px solid #fee2e2;border-radius:10px;background:#fff7f7;color:#991b1b;font-size:13px;line-height:1.6}
+.emergency-list{display:grid;gap:10px}
+.emergency-card{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px;border:1px solid #e5e7eb;border-radius:13px;background:#fff}
+.emergency-card-info{display:flex;align-items:center;gap:11px;min-width:0}
+.emergency-card-icon{width:42px;height:42px;flex:0 0 42px;display:flex;align-items:center;justify-content:center;border-radius:11px;background:#f3f4f6;font-size:20px}
+.emergency-card h3{margin:0 0 3px;color:#374151;font-size:14px;font-weight:700;line-height:1.4}
+.emergency-card strong{color:#111827;font-size:18px;letter-spacing:.3px}
+.emergency-card-actions{display:flex;align-items:center;gap:7px;flex:0 0 auto}
+.emergency-call,.emergency-copy{min-height:36px;padding:0 11px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;font:inherit;font-size:12px;font-weight:700;text-decoration:none;cursor:pointer;box-sizing:border-box;transition:background-color .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease}
+.emergency-call{border:1px solid #166534;background:#166534;color:#fff}.emergency-call:hover{background:#14532d;box-shadow:0 5px 14px rgba(22,101,52,.16)}
+.emergency-copy{border:1px solid #d1d5db;background:#f8fafc;color:#374151}.emergency-copy:hover{background:#f3f4f6;border-color:#9ca3af}
+.emergency-card.important{border-color:#fecaca;background:#fff7f7}.emergency-card.important .emergency-card-icon{background:#fee2e2}.emergency-card.important h3{color:#b91c1c}.emergency-card.important strong{color:#dc2626;font-size:21px}
+.emergency-footer{margin-top:12px;color:#6b7280;font-size:12px;line-height:1.6;text-align:center}
+@media(max-width:950px){.header-inner{gap:12px}.nav{gap:6px}.nav a{padding-left:8px;padding-right:8px;font-size:13px}.nav-button{padding-left:11px!important;padding-right:11px!important}}
+@media(max-width:800px){.header-inner{min-height:auto;flex-direction:column;padding:12px 0 13px;gap:10px}.nav{width:100%;justify-content:center;flex-wrap:wrap;gap:7px}.nav a{font-size:12.5px;min-height:38px}.nav-button{min-height:40px!important}.emergency-nav-button{min-height:38px!important}.emergency-card{align-items:stretch;flex-direction:column}.emergency-card-actions{width:100%}.emergency-call,.emergency-copy{flex:1}}
+@media(max-width:430px){.header-inner{padding-top:10px;padding-bottom:11px}.logo{font-size:18px}.nav{gap:6px 5px}.nav a{font-size:11.5px;padding-left:7px;padding-right:7px}.nav-button{padding-left:9px!important;padding-right:9px!important}.emergency-nav-button{padding-left:9px!important;padding-right:9px!important}.emergency-overlay{padding:9px}.emergency-header{padding:14px}.emergency-body{padding:12px 14px 15px}.emergency-title h2{font-size:18px}.emergency-title p{font-size:12px}.emergency-card{padding:11px}.emergency-card-icon{width:38px;height:38px;flex-basis:38px}.emergency-card h3{font-size:13px}.emergency-card strong{font-size:17px}.emergency-card.important strong{font-size:20px}}
